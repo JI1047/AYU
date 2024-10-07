@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Images with Rotate Hover Effect</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        /* 배경 이미지 설정 */
+        body {
+            background-size: 99.7%; /* 배경 이미지 크기를 90%로 조정 */
+            background-position: center -20px; /* 배경 이미지가 중앙에 위치하며, 아래로 70px 내려옴 */
+            background-repeat: no-repeat; /* 배경 이미지 반복 방지 */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 이미지 크기 조정 */
+        .draggable {
+            width: 150px;
+            height: 150px;
+            cursor: move;
+            transition: transform 0.2s; /* 부드러운 트랜지션 */
+        }
+
+        /* 회전 효과 */
+        .draggable:hover {
+            animation: rotate 0.5s ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        .icon {
+            margin-top: 1%;
+        }
+
+        /* 좌우로 10도씩 회전하는 애니메이션 정의 */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+            100% { transform: rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+<nav class="icon">
+    <img class="draggable" src="식품영양학과.png" alt="Draggable Image">
+    <img class="draggable" src="소프트웨어학과.png" alt="Draggable Image">
+    <img class="draggable" src="환경에너지.png" alt="Draggable Image">
+    <img class="draggable" src="통계데이터사이언스학과.png" alt="Draggable Image">
+    <img class="draggable" src="도시정보학과.png" alt="Draggable Image">
+    <img class="draggable" src="전기전자정보.png" alt="Draggable Image">
+    <img class="draggable" src="컴공.png" alt="Draggable Image">
+
+</nav>
+<script>
+    // jQuery UI의 draggable 함수 사용하여 모든 .draggable 클래스를 가진 이미지 드래그 가능하게 설정
+    $(function() {
+        $(".draggable").draggable();
+    });
+
+    // 랜덤 배경 이미지 설정
+    const images = [
+        '학교배경.png',
+        '실험실.png',
+        '축구장.png',
+    ];
+
+    // 랜덤 이미지 선택
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+
+    // 배경 이미지 적용
+    document.body.style.backgroundImage = `url('${randomImage}')`;
+</script>
+
+</body>
+</html>

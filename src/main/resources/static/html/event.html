@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .day {
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .login-btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+
+<div class="calendar">
+    <!-- 간단한 7일짜리 캘린더 -->
+    <div class="day">일</div>
+    <div class="day">월</div>
+    <div class="day">화</div>
+    <div class="day">수</div>
+    <div class="day">목</div>
+    <div class="day">금</div>
+    <div class="day">토</div>
+    <!-- 여기서 일정 데이터를 넣을 수 있습니다 -->
+</div>
+
+<!-- 로그인 버튼 -->
+</body>
+</html>

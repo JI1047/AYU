@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>일정 수정</h1>
+    <form th:action="@{/events/edit/{id}(id=${event.id})}" th:object="${event}" method="post">
+        <label for="title">일정 제목</label>
+        <input type="text" id="title" name="title" th:field="*{title}" required>
+
+        <label for="startTime">시작 시간</label>
+        <input type="datetime-local" id="startTime" name="startTime" th:field="*{startTime}" required>
+
+        <label for="endTime">종료 시간</label>
+        <input type="datetime-local" id="endTime" name="endTime" th:field="*{endTime}" required>
+
+        <label for="description">설명</label>
+        <textarea id="description" name="description" th:field="*{description}" rows="4"></textarea>
+
+        <label for="location">장소</label>
+        <input type="text" id="location" name="location" th:field="*{location}">
+
+        <button type="submit" class="submit-btn">수정 내용 저장</button>
+    </form>
+</div>
+
+</body>
+</html>

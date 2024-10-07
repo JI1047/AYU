@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .day {
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .event {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<h1>캘린더</h1>
+
+<div class="calendar">
+    <div class="day">
+        <strong>일</strong>
+        <!-- 일요일 이벤트 -->
+        <div th:each="event : ${sundayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+    <div class="day">
+        <strong>월</strong>
+        <!-- 월요일 이벤트 -->
+        <div th:each="event : ${mondayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+    <div class="day">
+        <strong>화</strong>
+        <!-- 화요일 이벤트 -->
+        <div th:each="event : ${tuesdayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+    <div class="day">
+        <strong>수</strong>
+        <!-- 수요일 이벤트 -->
+        <div th:each="event : ${wednesdayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+    <div class="day">
+        <strong>목</strong>
+        <!-- 목요일 이벤트 -->
+        <div th:each="event : ${thursdayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+    <div class="day">
+        <strong>금</strong>
+        <!-- 금요일 이벤트 -->
+        <div th:each="event : ${fridayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+    <div class="day">
+        <strong>토</strong>
+        <!-- 토요일 이벤트 -->
+        <div th:each="event : ${saturdayEvents}" class="event" th:text="${event.title}"></div>
+    </div>
+</div>
+
+</body>
+</html>

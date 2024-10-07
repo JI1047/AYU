@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>Neumorphism Profile Card | CodingNepal</title> -->
+    <link rel="stylesheet" href="namecard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="img-area">
+        <div class="inner-area">
+            <img src="빵선생.png" alt="빵선생" style="width: 50%; height: auto;">
+
+        </div>
+    </div>
+    <div class="icon arrow"><i class="fas fa-arrow-left"></i></div>
+    <div class="icon dots"><i class="fas fa-ellipsis-v"></i></div>
+    <div class="name">빵빵이</div>
+    <div class="about">컴퓨터공학과</div>
+
+    <div th:if="${session.adminLogin != null}">
+        <a href="/basic/events/add" class="add-btn">일정 추가</a>
+        <a href="/members/logout" class="add-btn">로그아웃</a>
+    </div>
+    <div th:if="${session.adminLogin == null}">
+        <a href="#" class="add-btn" onclick="redirectToLogin(); return false;">로그인</a>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            // 최상위 페이지를 /basic/events/login으로 이동
+            window.top.location.href = '/basic/events/login';
+        }
+    </script>
+
+    </div>
+</div>
+</body>
+</html>

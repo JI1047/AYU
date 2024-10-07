@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 선택</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .login-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .login-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>로그인 선택</h1>
+    <!-- 관리자 로그인 버튼 -->
+    <a href="/members/adminlogin" class="login-btn">관리자 로그인</a>
+    <!-- 회원 로그인 버튼 -->
+    <a href="/members/userlogin" class="login-btn">회원 로그인</a>
+</div>
+</body>
+</html>

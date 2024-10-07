@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일정 수정</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h1>일정 수정</h1>
+  <form th:action="@{/basic/events/edit/{id}(id=${event.id})}" th:object="${event}" method="post">
+    <label for="title">일정 제목</label>
+    <input type="text" id="title" name="title" th:field="*{title}" required>
+
+    <label for="day">날짜</label>
+    <input type="text" id="day" name="day" th:field="*{date}" required>
+
+    <label for="location">장소</label>
+    <input type="text" id="location" name="location" th:field="*{location}" required>
+
+    <button type="submit" class="submit-btn">수정 완료</button>
+  </form>
+</div>
+
+</body>
+</html>

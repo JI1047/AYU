@@ -1,0 +1,84 @@
+  <!DOCTYPE html>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 페이지</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+      .login-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .login-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .login-btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div class="login-container">
+    <h1>로그인</h1>
+    <form th:action="@{/members/adminlogin}" method="post">
+      <div class="form-group">
+        <label for="username">아이디</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="login-btn">로그인</button>
+    </form>
+  </div>
+
+  <!-- JavaScript로 로그인 실패 시 팝업 창 띄우기 -->
+  <script th:if="${error != null}" th:inline="javascript">
+    var errorMessage = /*[[${error}]]*/ 'null'; // Thymeleaf에서 에러 메시지 전달
+
+    if (errorMessage !== 'null') {
+      alert(errorMessage); // 팝업 창으로 오류 메시지 표시
+    }
+  </script>
+
+  </body>
+  </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .event-details {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .event-details h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .event-details p {
+            margin: 10px 0;
+        }
+        .back-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="event-details">
+    <h1 th:text="${event.title}"></h1>
+    <p><strong>날짜:</strong> <span th:text="${event.date}"></span></p>
+    <p><strong>장소:</strong> <span th:text="${event.location}"></span></p>
+
+    <!-- 돌아가기 버튼 -->
+    <a href="/basic/events" class="back-btn">목록으로 돌아가기</a>
+    <!-- 일정 수정 페이지로 이동하는 버튼 -->
+    <a th:href="@{/basic/events/edit/{itemId}(itemId=${event.id})}" class="edit-btn">일정 수정</a>
+</div>
+
+</body>
+</html>

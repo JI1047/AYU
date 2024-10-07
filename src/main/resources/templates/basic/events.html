@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List by Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .add-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .add-btn:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>요일별 일정 목록</h1>
+
+<!-- 월요일 일정 -->
+<h2>월요일</h2>
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>장소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${mondayEvents}">
+        <td>
+            <a th:href="@{/basic/events/{itemId}(itemId=${event.id})}" th:text="${event.title}"></a>
+        </td>
+        <td th:text="${event.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 화요일 일정 -->
+<h2>화요일</h2>
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>장소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${tuesdayEvents}">
+        <td>
+            <a th:href="@{/basic/events/{itemId}(itemId=${event.id})}" th:text="${event.title}"></a>
+        </td>
+        <td th:text="${event.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 수요일 일정 -->
+<h2>수요일</h2>
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>장소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${wednesdayEvents}">
+        <td>
+            <a th:href="@{/basic/events/{itemId}(itemId=${event.id})}" th:text="${event.title}"></a>
+        </td>
+        <td th:text="${event.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 목요일 일정 -->
+<h2>목요일</h2>
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>장소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${thursdayEvents}">
+        <td>
+            <a th:href="@{/basic/events/{itemId}(itemId=${event.id})}" th:text="${event.title}"></a>
+        </td>
+        <td th:text="${event.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 금요일 일정 -->
+<h2>금요일</h2>
+<table>
+    <thead>
+    <tr>
+        <th>제목</th>
+        <th>장소</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${fridayEvents}">
+        <td>
+            <a th:href="@{/basic/events/{itemId}(itemId=${event.id})}" th:text="${event.title}"></a>
+        </td>
+        <td th:text="${event.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- 일정 추가 페이지로 이동하는 버튼 -->
+<div th:if="${session.adminLogin != null}">
+    <a href="/basic/events/add" class="add-btn">일정 추가</a>
+    <a href="/members/logout" class="add-btn">로그아웃</a>
+</div>
+
+<!-- 로그인 버튼: 관리자가 로그인하지 않은 경우에만 표시 -->
+<div th:if="${session.adminLogin == null}">
+    <a href="/basic/events/login" class="add-btn">로그인</a>
+</div>
+
+</body>
+</html>
