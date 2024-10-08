@@ -22,7 +22,7 @@
     <div class="about">컴퓨터공학과</div>
 
     <div th:if="${session.adminLogin != null}">
-        <a href="/basic/events/add" class="add-btn">일정 추가</a>
+        <a href="#" class="add-btn" onclick="redirectToAddForm(); return false">일정 추가</a>
         <a href="/members/logout" class="add-btn">로그아웃</a>
     </div>
     <div th:if="${session.adminLogin == null}">
@@ -33,6 +33,11 @@
         function redirectToLogin() {
             // 최상위 페이지를 /basic/events/login으로 이동
             window.top.location.href = '/basic/events/login';
+        }
+
+        function redirectToAddForm() {
+            // 최상위 페이지를 /basic/events/add으로 이동
+            window.top.location.href = '/basic/events/add';
         }
     </script>
 
